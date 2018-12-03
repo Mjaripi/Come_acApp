@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<br>
+<div class="container">
+
+	<!-- Encabezado -->
+	<blockquote class="blockquote text-center">
+		<p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+		<footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+	<!-- Fin encabezado -->
+
+	<br>
+
+	<blockquote class="blockquote text-center">
+		<h3>
+			<small class="text-muted">jueves 7 de diciembre</small>
+		</h3>
+	</blockquote>
+
+	<!-- Fin encabezado -->
+	<br>
+	<br>
+
+	<h5>Información kiosco</h5>
+
+	<br>
+
+	<hr>
+	<br>
+
+	<form class="container">
+		<!-- Datos Kiosco -->
+
+		<div class="row">
+			<div class="col-lg-6">
+				<label for="exampleFormControlSelect1">Nombre</label>
+				<select class="form-control" name = "KIO_UNIV" id="exampleFormControlSelect1"  disabled>
+					<option selected disabled>CASINO USACH (FAC. ING. ESTADISTICA)</option>
+				</select>
+			</div>
+			<div class="col-lg-6">
+				<label for="exampleFormControlSelect1">Direccion</label>
+				<select class="form-control" name = "KIO_UNIV" id="exampleFormControlSelect1"  disabled>
+					<option selected disabled>CALLE EL BELLOTO 3469. ESTACION CENTRAL</option>
+				</select>
+			</div>
+		</div>
+
+		<br>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<label for="exampleFormControlSelect1">Carrera</label>
+				<select class="form-control" name = "KIO_UNIV" id="exampleFormControlSelect1"  disabled>
+					<option selected disabled>INGENIERIA ESTADISTICA</option>
+				</select>
+			</div>
+			<div class="col-lg-6">
+				<label for="exampleFormControlSelect1">Universidad</label>
+				<select class="form-control" name = "KIO_UNIV" id="exampleFormControlSelect1"  disabled>
+					<option selected disabled>UNIVERSIDAD DE SANTIAGO DE CHILE</option>
+				</select>
+			</div>
+		</div>
+		<br>
+		<br>
+		<label for="disabledTextInput">Almuerzos del Dia</label>
+		<table class="table">
+			<thead>
+		        <th scope="col">Almuerzo</th>
+		        <th scope="col">Nombre</th>
+		        <th scope="col">Categoria</th>
+		        <th scope="col">Precio</th>
+			</thead>
+			<tbody id ="todoAlmuerzo">
+				<tr>
+			              <th scope="row">AJI DE GALLINA</th>
+			              <td> Muy Rico</td>
+			              <td>SOPAS</td>
+			              <td>$2.000</td>
+
+			    </tr>
+			</tbody>
+		</table>
+		<br>
+		<div class="col-md-6 mb-0">
+			<label for="disabledTextInput">Medios de Pago disponibles:</label>
+		</div>
+			<br>
+		<div class="row">
+			<div class="col-md-2 mb-4">
+				<span class="input-group-addon" id="basic-addon3">Junaeb</span>
+			</div>
+			<br>
+			<div class="col-md-2 mb-4">
+				<span class="input-group-addon" id="basic-addon3">Ticket endered</span>
+			</div>
+		</div>
+		<div class="col-md-14 mb-3">
+			<label for="exampleFormControlTextarea1">Comentario (Max. 500 caracteres)</label>
+			<textarea class="form-control" name="coment" id="exampleFormControlTextarea1" rows="4"></textarea>
+		</div>
+		<div class="row">
+			<div class="col-lg-2">
+				<label for="exampleFormControlSelect1">Valoracion:</label>
+				<select class="form-control" name = "VAL" id="exampleFormControlSelect1">
+					<option value "5" selected>5.0</option>
+					<option value "4">4.0</option>
+					<option value "3">3.0</option>
+					<option value "2">2.0</option>
+					<option value "1">1.0</option>
+					<option value "0">0.0</option>
+				</select>
+			</div>
+
+			<div class="col-lg-3">
+				<label for="exampleFormControlSelect1">Tipo Comentario:</label>
+				<select class="form-control" name = "T_COM" id="exampleFormControlSelect1">
+					<option value "1" selected>FELICITACIONES</option>
+					<option value "2">SUGERENCIA</option>
+					<option value "3">RECLAMO</option>
+				</select>
+			</div>
+
+		</div>
+		<br>
+		<div class="col-md-6 mb-3">
+			<button type="submit" class="btn btn-primary">Publicar</button>
+		</div>
+	</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,525 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<br>
+<div class="container">
+
+	<!-- Encabezado -->
+	<blockquote class="blockquote text-center">
+		<p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+		<footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+	<!-- Fin encabezado -->
+
+	<br>
+
+	<blockquote class="blockquote text-center">
+		<h3>
+			<small class="text-muted">jueves 7 de diciembre</small>
+		</h3>
+	</blockquote>
+	
+	<!-- Fin encabezado -->
+	<br>
+	<br>
+
+	<!-- Menú de filtros -->
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo" role="tab" aria-controls="todo" aria-selected="true">Todo</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="categoria-tab" data-toggle="tab" href="#categoria" role="tab" aria-controls="categoria" aria-selected="false">Categorías</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="precio-tab" data-toggle="tab" href="#precio" role="tab" aria-controls="precio" aria-selected="false">Precio</a>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Más filtros</a>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" id="carrera-tab" data-toggle="tab" href="#carrera" role="tab" aria-controls="carrera" aria-selected="false">Carrera</a>
+				<a class="dropdown-item" id="medio-pago-tab" data-toggle="tab" href="#mediopago" role="tab" aria-controls="mediopago" aria-selected="false">Medios de Pago</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" id="kiosco-tab" data-toggle="tab" href="#kiosco" role="tab" aria-controls="kiosco" aria-selected="false">Kiosco</a>
+			</div>
+		</li>
+	</ul>
+
+	<!-- Contenido Menú de filtros -->
+	<div class="tab-content" id="myTabContent">
+		<!-- Todo -->
+		<div class="tab-pane fade show active" id="todo" role="tabpanel" aria-labelledby="todo-tab">
+			<!-- Tabla que muestra los almuerzos -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Almuerzo</th>
+						<th scope="col">Precio</th>
+						<th scope="col">Horario</th>
+						<th scope="col">Ver más</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<th scope="row">Arroz chaufa</th>
+						<td>$ 1.800</td>
+						<td>12:30</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+						</tr>
+					<tr>
+						<th scope="row">Cazuela de vacuno</th>
+						<td>$ 2.500</td>
+						<td>12:00</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Lentejas</th>
+						<td>$ 2.000</td>
+						<td>12:45</td>
+						<td>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+					<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+						<a class="page-link" href="#">Siguiente</a>
+					</li>
+				</ul>
+			</nav>
+
+		</div>
+		<!-- Categorías--> 
+		<div class="tab-pane fade" id="categoria" role="tabpanel" aria-labelledby="categoria-tab">
+			<!-- Tabla que muestra los almuerzos -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Categoría</th>
+						<th scope="col">Almuerzo</th>
+						<th scope="col">Precio</th>
+						<th scope="col">Ver más</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<th scope="row">Pastas</th>
+						<td>Pasta 1</td>
+						<td>$ 1.800</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+						</tr>
+					<tr>
+						<th scope="row">Pastas</th>
+						<td>Pasta 2</td>
+						<td>$ 2.500</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Ensaladas</th>
+						<td>Ensalada 1</td>
+						<td>$ 2.000</td>
+						<td>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+					<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+						<a class="page-link" href="#">Siguiente</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<!-- Precio -->
+		<div class="tab-pane fade" id="precio" role="tabpanel" aria-labelledby="precio-tab">
+			<!-- Tabla que muestra los almuerzos -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Precio</th>
+						<th scope="col">Almuerzo</th>
+						<th scope="col">Categoría</th>
+						<th scope="col">Ver más</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<th scope="row">$ 1.800</th>
+						<td>Pasta 1</td>
+						<td>Pastas</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+						</tr>
+					<tr>
+						<th scope="row">$ 2.500</th>
+						<td>Pasta 2</td>
+						<td>Pastas</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">$ 2.000</th>
+						<td>Ensalada 1</td>
+						<td>Ensaladas</td>
+						<td>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+					<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+						<a class="page-link" href="#">Siguiente</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<!-- Carrera -->
+		<div class="tab-pane fade" id="carrera" role="tabpanel" aria-labelledby="carrera-tab">
+			<!-- Tabla que muestra los almuerzos -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Carrera</th>
+						<th scope="col">Almuerzo</th>
+						<th scope="col">Precio $</th>
+						<th scope="col">Ver más</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<th scope="row">Carrera 1</th>
+						<td>Pasta 1</td>
+						<td>$ 1.800</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+						</tr>
+					<tr>
+						<th scope="row">Carrera 1</th>
+						<td>Pasta 2</td>
+						<td>$ 2.500</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Carrera 2</th>
+						<td>Ensalada 1</td>
+						<td>$ 2.000</td>
+						<td>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+					<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+						<a class="page-link" href="#">Siguiente</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<!-- Medios de Pago -->
+		<div class="tab-pane fade" id="mediopago" role="tabpanel" aria-labelledby="medio-pago-tab">
+			<!-- Tabla que muestra los almuerzos -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Medio Pago</th>
+						<th scope="col">Almuerzo</th>
+						<th scope="col">Precio $</th>
+						<th scope="col">Ver más</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<th scope="row">Efectivo</th>
+						<td>Pasta 1</td>
+						<td>$ 1.800</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+						</tr>
+					<tr>
+						<th scope="row">Efectivo</th>
+						<td>Pasta 2</td>
+						<td>$ 2.500</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Junaeb</th>
+						<td>Ensalada 1</td>
+						<td>$ 2.000</td>
+						<td>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+					<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+						<a class="page-link" href="#">Siguiente</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<!-- Kiosco -->
+		<div class="tab-pane fade" id="kiosco" role="tabpanel" aria-labelledby="kiosco-tab">
+			<!-- Tabla que muestra los almuerzos -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Kiosco</th>
+						<th scope="col">Almuerzo</th>
+						<th scope="col">Precio $</th>
+						<th scope="col">Ver más</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<th scope="row">Kiosco 1</th>
+						<td>Pasta 1</td>
+						<td>$ 1.800</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+						</tr>
+					<tr>
+						<th scope="row">Kiosco 1</th>
+						<td>Pasta 2</td>
+						<td>$ 2.500</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Kiosco 2</th>
+						<td>Ensalada 1</td>
+						<td>$ 2.000</td>
+						<td>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							Ver más
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+					<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+						<a class="page-link" href="#">Siguiente</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+
+	<br>
+	<br>
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Almuerzo</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-4">
+							<div class="list-group" id="list-tab" role="tablist">
+								<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Medio Pago</a>
+								<a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Agregado</a>
+								<a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Kiosco</a>
+								<a class="list-group-item list-group-item-action" id="list-categoria-list" data-toggle="list" href="#list-categoria" role="tab" aria-controls="categoria">Categoría</a>
+							</div>
+						</div>
+						<div class="col-8">
+							<div class="tab-content" id="nav-tabContent">
+								<!-- Medios de Pago -->
+								<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+									<ul class="list-group">
+										<li class="list-group-item">Efectivo</li>
+										<li class="list-group-item">Junaeb</li>
+										<li class="list-group-item">Cuenta rut</li>
+										<li class="list-group-item">Ticket Endered</li>
+									</ul>
+								</div>
+								<!-- Agregado -->
+								<div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+									<ul class="list-group">
+										<li class="list-group-item">Pan</li>
+										<li class="list-group-item">Jugo</li>
+										<li class="list-group-item">Ensalada</li>
+									</ul>
+								</div>
+								<!-- Kiosco -->
+								<div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+									<ul class="list-group">
+										<li class="list-group-item">Kiosco Redy</li>
+										<li class="list-group-item">Ingeniería Química</li>
+										<li class="list-group-item">Avenida Alameda 3363. Estación Central</li>
+									</ul>
+								</div>
+								<!-- Categoria -->
+								<div class="tab-pane fade" id="list-categoria" role="tabpanel" aria-labelledby="list-categoria-list">
+									<ul class="list-group">
+										<li class="list-group-item">Sano</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<!-- Formulario Comentario -->
+					<form>
+						<div class="form-group">
+							<label for="exampleFormControlTextarea1">Comentario</label>
+							<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Comentar</button>
+						<br>
+						<br>
+						<div class="alert alert-warning" role="alert">
+  							Recuerda Iniciar Sesión para comentar
+						</div>
+					</form>
+					<br>
+					<hr>
+					<h5>Comentarios</h5>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+					<hr>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+					<hr>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+					<hr>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+					<hr>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+{% endblock %}

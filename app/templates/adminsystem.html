@@ -1,0 +1,220 @@
+{% extends "layout_3.html" %}
+{% block body %}
+
+<br>
+<div class="container">
+
+	<!-- Encabezado -->
+	<blockquote class="blockquote text-center">
+		<p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+		<footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+	<!-- Fin encabezado -->
+
+	<br>
+
+	<blockquote class="blockquote text-center">
+		<h3>
+			<small class="text-muted">jueves 7 de diciembre</small>
+		</h3>
+	</blockquote>
+	
+	<!-- Fin encabezado -->
+	<br>
+	<br>
+	<h5>Administre un Kiosco</h5>
+
+	<br>
+	<form>
+		<div class="form-group">
+			<label for="exampleFormControlInput1">Kiosco</label>
+			<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre Kiosco">
+		</div>
+		<div class="form-group">
+			<label for="exampleFormControlInput1">Ubicación</label>
+			<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ubicación Kiosco">
+		</div>
+		
+		<br>
+		<!--
+	
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Selección de Carrera</label>
+					<select class="form-control" id="exampleFormControlSelect1">
+						{% for o in CARRERA %}
+    						<option value="{{ o.CAR_ID }}" SELECTED>{{ o.CAR_ID }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+	
+
+-->
+
+	
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Selección de Carrera</label>
+					<ul>
+						{% for o in CARRERA %}
+    						<li>{{o}}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+
+
+
+			<div class="col-lg-6">
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          CARRERA
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          CARRERA
+        </button>
+        <div class="dropdown-menu">
+        	{% for carrera in CARRERA %}
+                  <tr>
+                    <td>{{ carrera.CAR_NOMBRE }}</td>
+                    <td>
+                  </tr>
+                {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+		<!-- Seleccción universidad -->
+		
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Selección de Universidad</label>
+					<select class="form-control" id="exampleFormControlSelect1">
+						<option>Seleccionar Universidad</option>
+						<option>Universidad 1</option>
+						<option>Universidad 2</option>
+						<option>Universidad 3</option>
+						<option>Universidad 4</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<!-- fin selección universidad -->
+		<br>
+		<!-- Selección Administrador -->
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Selección de Administrador</label>
+					<select class="form-control" id="exampleFormControlSelect1">
+						<option>Seleccionar Administrador</option>
+						<option>Administrador 1</option>
+						<option>Administrador 2</option>
+						<option>Administrador 3</option>
+						<option>Administrador 4</option>
+					</select>
+				</div>
+			</div>
+	
+		<!-- Fin selección carreera -->
+
+
+		<!-- Seleccción horario-->
+		
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Horario Almuerzo</label>
+					<div class="input-group">
+						<span class="input-group-addon">Hrs:</span>
+						<input type="text" class="form-control" aria-label="Text input with radio button">
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- fin selección universidad -->
+
+		<br>
+		<!-- selección de agregado -->
+		<div class="form-group">
+			<label for="exampleFormControlSelect2">Medios de Pago</label>
+			<div multiple class="form-control" id="exampleFormControlSelect2">	
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 
+						Efectivo
+					</label>
+				</div>
+				<br>
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						Junaeb
+					</label>
+				</div>
+				<br>
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 
+						Ticket Endered
+					</label>
+				</div>
+				<br>
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 
+						Cuenta rut
+					</label>
+				</div>
+			</div>
+		</div>
+		<!-- fin selección de agregado -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- botón de publicación del almuerzo -->
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Ingresar</button>
+		</div>
+		<!-- fin botón publicación de almuerzo -->
+
+
+
+
+</div>
+{% endblock %}

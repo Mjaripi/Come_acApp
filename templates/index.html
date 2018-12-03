@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+<br>
+<div class="container">
+
+	<!-- Encabezado -->
+	<blockquote class="blockquote text-center">
+	   <p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+	   <footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+
+
+	<br>
+
+	<blockquote class="blockquote text-center">
+	   <h3>
+		     <small class="text-muted">jueves 7 de diciembre</small>
+	   </h3>
+	</blockquote>
+  <!-- Fin encabezado -->
+  <br>
+	<br>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+  		<li class="nav-item">
+  			<a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo" role="tab" aria-controls="todo" aria-selected="true">Todo</a>
+  		</li>
+  		<li class="nav-item">
+  			<a class="nav-link" id="precio-tab" data-toggle="tab" href="#precio" role="tab" aria-controls="precio" aria-selected="false">Precio</a>
+  		</li>
+  		<li class="nav-item dropdown">
+  			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categoria</a>
+  			<div id="categoria" class="dropdown-menu">
+  			{% for c in CATEGORIA %}
+
+  					<a class="dropdown-item" id="categoria-tab" value="{{c.CAT_ID}}" data-toggle="tab" href="#{{c.CAT_NOMBRE}}" role="tab" aria-controls="kiosco" aria-selected="false">{{c.CAT_NOMBRE}}</a>
+
+  			{% endfor %}
+  			</div>
+  		</li>
+  		<li class="nav-item dropdown">
+  			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Medios de Pago</a>
+  			<div class="dropdown-menu">
+  			{% for c in MEDIO_PAGO %}
+
+  					<a class="dropdown-item" id="medpago-tab" data-toggle="tab" href="#{{c.MED_PAG_NOMBRE}}" role="tab" aria-controls="kiosco" aria-selected="false">{{c.MED_PAG_NOMBRE}}</a>
+
+  			{% endfor %}
+  			</div>
+  		</li>
+  	</ul>
+
+  <div class="tab-content" id="myTabContent">
+    <!-- Todo -->
+    <div class="tab-pane fade show active" id="todo" role="tabpanel" aria-labelledby="todo-tab">
+			<!-- Tabla que muestra los almuerzos -->
+
+			<br>
+
+			<br>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Kiosco</th>
+						<th scope="col">Almuerzo</th>
+						<th scope="col">Precio</th>
+						<th scope="col">Horario</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+
+				<tbody id ="todoAlmuerzo">
+					{% for c in ALMUERZO %}
+          <tr>
+										<td>{{ c.KIO_NOMBRE }}</td>
+                    <th scope="row">{{ c.ALM_NOMBRE}}</th>
+                    <td>${{ c.PRECIO }}</td>
+                    <td>{{ c.HORA }}</td>
+                    <td>
+						          <a href="/almuerzo/{{ c.KIO_ALM_ID }}" class="btn btn-sm btn-warning">Ver más</a>
+						        </td>
+
+          </tr>
+          {% endfor %}
+
+				</tbody>
+			</table>
+
+
+		</div>
+
+    <div class="tab-pane fade" id="precio" role="tabpanel" aria-labelledby="precio-tab">
+			<!-- Tabla que muestra los almuerzos -->
+
+			<br>
+
+			<br>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Precio</th>
+						<th scope="col">Almuerzo</th>
+						<th scope="col">Categoria</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for c in PRECIO %}
+          <tr>
+										<td>${{ c.PRECIO }}</td>
+                    <th scope="row">{{ c.ALM_NOMBRE}}</th>
+                    <td>{{ c.CAT_NOMBRE }}</td>
+                    <td>
+						          <a href="/Almuerzo/{{ c.KIO_ALM_ID }}" class="btn btn-sm btn-warning">Ver más</a>
+						        </td>
+
+          </tr>
+          {% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+    {% for c in CATEGORIA %}
+    <div class="tab-pane fade" id="{{c.CAT_NOMBRE}}" role="tabpanel" aria-labelledby="todo-tab">
+        <br>
+        <p class="mb-0">Busqueda por Categoria:  {{c.CAT_NOMBRE}}</p>
+        <br>
+        <table class="table">
+  				<thead>
+  					<tr>
+  						<th scope="col">Kiosco</th>
+  						<th scope="col">Almuerzo</th>
+  						<th scope="col">Precio</th>
+  						<th scope="col">Horario</th>
+  						<th scope="col"></th>
+  					</tr>
+  				</thead>
+
+        </table>
+    </div>
+    {% endfor %}
+
+    {% for c in MEDIO_PAGO %}
+    <div class="tab-pane fade" id="{{c.MED_PAG_NOMBRE}}" role="tabpanel" aria-labelledby="todo-tab">
+        <br>
+        <p class="mb-0">Busqueda por Medio de Pago:  {{c.MED_PAG_NOMBRE}}</p>
+        <br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Kiosco</th>
+              <th scope="col">Almuerzo</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Horario</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+
+        </table>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<br>
+<br>
+
+{% endblock %}

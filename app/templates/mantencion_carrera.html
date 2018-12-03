@@ -1,0 +1,95 @@
+{% extends "layout_3.html" %}
+{% block body %}
+  <br>
+  <div class="container">
+
+    <!-- Encabezado -->
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+      <footer class="blockquote-footer">Come acApp</footer>
+    </blockquote>
+    <!-- Fin encabezado -->
+
+    <br>
+
+    <blockquote class="blockquote text-center">
+      <h3>
+        <small class="text-muted">jueves 7 de diciembre</small>
+      </h3>
+    </blockquote>
+  
+    <!-- Fin encabezado -->
+    <br>
+    <br>
+    <h5>Mantención de Carreras</h5>
+
+    <br>
+
+
+    <!-- Tabla que muestra los medios de pago -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Carrera</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+
+        <tbody>
+                {% for carrera in CARRERA %}
+                  <tr>
+                    <td>{{ carrera.CAR_ID}}</td>
+                    <td>{{ carrera.CAR_NOMBRE }}</td>
+                    <td>
+                      <a href="/edit/{{ carrera.CAR_ID }}/update" class="btn btn-sm btn-warning">Editar</a>
+                    </td>
+                    <td>
+                      <a href="/mantencion_carrera/{{ carrera.CAR_ID }}/delete" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+      </table>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrocarrera" data-whatever="@mdo">Añadir Nuevo</button>
+
+
+      <br>
+      <br>
+
+      <div class="modal fade" id="registrocarrera" tabindex="-1" role="dialog" aria-labelledby="registrocarrera" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registrocarrera">Registro</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/mantencion_carrera" method="post">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Carrera:</label>
+                <input type="text" name = "CAR_NOMBRE" class="form-control" id="recipient-name" placeholder="Medio de Pago">
+              </div>
+              <div class="modal-footer">
+                <input type="submit" class="btn btn-success" value="Registrar"></input>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+  </div>
+{% endblock %}

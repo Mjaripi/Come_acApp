@@ -1,0 +1,150 @@
+{% extends "layout_3.html" %}
+{% block body %}
+
+<br>
+<div class="container">
+
+	<!-- Encabezado -->
+	<blockquote class="blockquote text-center">
+		<p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+		<footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+	<!-- Fin encabezado -->
+
+	<br>
+
+	<blockquote class="blockquote text-center">
+		<h3>
+			<small class="text-muted">jueves 7 de diciembre</small>
+		</h3>
+	</blockquote>
+
+	<!-- Fin encabezado -->
+	<br>
+	<br>
+	<h5>Administre un Kiosco</h5>
+
+	<br>
+	<form>
+		<div class="form-group">
+			<label for="exampleFormControlInput1">Kiosco</label>
+			<input type="text" name="KIO_NOMB" class="form-control" id="exampleFormControlInput1" placeholder="Nombre Kiosco">
+		</div>
+		<div class="form-group">
+			<label for="exampleFormControlInput1">Ubicación</label>
+			<input type="text" name="KIO_UBIC" class="form-control" id="exampleFormControlInput1" placeholder="Ubicación Kiosco">
+		</div>
+
+		<br>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Selección de Carrera</label>
+					<select class="form-control" name="KIO_CARR" id="exampleFormControlSelect1">
+						<option>Seleccione una Carrera</option>
+						{% for c in CARRERA %}
+    						<option value="{{ c.CAR_ID }}" SELECTED>{{ c.CAR_NOMBRE }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+		<!-- Seleccción universidad -->
+
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Selección de Universidad</label>
+					<select class="form-control" name="KIO_UNIV" id="seleccionuniversidad">
+						<option>Seleccione una Universidad</option>
+						{% for d in UNIVERSIDAD %}
+							<option value="{{ d.UNI_ID}}" SELECTED>{{ d.UNI_NOMBRE }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+		</div>
+		<!-- fin selección universidad -->
+		<br>
+		<!-- Selección Administrador -->
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Selección de Administrador</label>
+					<select class="form-control" name="KIO_USU_ADM" id="exampleFormControlSelect1">
+						<option>Seleccionar Administrador</option>
+						{% for d in ADMIN_USER %}
+							<option value="{{d.USU_ID}}" SELECTED>{{d.USU_NOMBRE}} </option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+
+		<!-- Fin selección carreera  form-control id="exampleFormControlSelect1" -->
+
+
+		<!-- Seleccción horario-->
+		<!--
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Horario Almuerzo</label>
+					<div class="input-group">
+						<span class="input-group-addon">Hrs:</span>
+						<input type="text" name="KIO_HORA" class="form-control" aria-label="Text input with radio button">
+					</div>
+				</div>
+			</div>
+		-->
+		</div>
+
+		<!-- fin selección universidad -->
+
+		<br>
+		<!-- selección de agregado
+		<div class="form-group">
+			<label for="exampleFormControlSelect2">Medios de Pago</label>
+			<div multiple class="form-control" id="exampleFormControlSelect2">
+				{% for c in MEDIO_PAGO %}
+					<div class="form-check">
+						<label class="form-check-label">
+							<input class="form-check-input" type="checkbox" name="med_pag[]" id="option{{c.MED_PAG_ID}}" value="{{c.MED_PAG_NOMBRE}}">
+							{{c.MED_PAG_NOMBRE}}
+						</label>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		 fin selección de agregado -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- botón de publicación del almuerzo -->
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Ingresar</button>
+		</div>
+		<!-- fin botón publicación de almuerzo -->
+
+
+
+
+</div>
+{% endblock %}

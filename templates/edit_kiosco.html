@@ -1,0 +1,73 @@
+{% extends "layout_3.html" %}
+{% block body %}
+<br>
+<div class="container">
+
+  <!-- Encabezado -->
+	<blockquote class="blockquote text-center">
+		<p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+		<footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+  <!-- Fin encabezado -->
+
+ 	<br>
+
+ 	<blockquote class="blockquote text-center">
+		<h3>
+	  		<small class="text-muted">jueves 7 de diciembre</small>
+		</h3>
+ 	</blockquote>
+
+	<br>
+    <br>
+
+	<h5>Actualizacion de datos Kiosco : "{{EDITAR.KIO_NOMBRE}}"</h5>
+
+	<br>
+
+	<form action="/ADM_kioscos/{{EDITAR.KIO_ID}}/UPD" method="post">
+    	<div class="form-group">
+			<label for="exampleFormControlInput1">Nombre</label>
+			<input type="text" name = "KIO_NOMBRE" class="form-control" id="exampleFormControlInput1" placeholder="Nombre Kiosco" value="{{EDITAR.KIO_NOMBRE}}">
+    	</div>
+		<div class="form-group">
+		 	<label for="exampleFormControlInput1">Direccion</label>
+		 	<input type="text" name = "KIO_DIRECCION" class="form-control" id="exampleFormControlInput1" placeholder="Ej: Calle Falsa 123" value="{{EDITAR.KIO_UBICACION}}">
+		</div>
+
+		<br>
+
+		<div class="row">
+			<!-- Inicio cuadro de seleccion de universidad -->
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Universidad</label>
+					<select class="form-control" name = "KIO_UNIV" id="exampleFormControlSelect1" value="{{EDITAR.KIO_UNI_ID}}" disabled>
+						<option selected value="{{EDITAR.KIO_UNI_ID}}" disabled>{{EDITAR.UNI_NOMBRE}}</option>
+					</select>
+				</div>
+			</div>
+			<!-- Fin cuadro de seleccion de universidad -->
+			<!-- Inicio cuadro de seleccion de carrera -->
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Carrera</label>
+					<select class="form-control" name = "KIO_CARR" id="exampleFormControlSelect1" value="{{EDITAR.KIO_CAR_ID}}" disabled>
+						<option selected value="{{EDITAR.KIO_CAR_ID}}" disabled>{{EDITAR.CAR_NOMBRE}}</option>
+					</select>
+				</div>
+			</div>
+			<!-- Fin cuadro de seleccion de carrera -->
+		</div>
+
+		<br>
+
+      	<div class="modal-footer">
+        	<input type="submit" class="btn btn-success" value="Editar"></input>
+      	</div>
+
+		<br>
+		<br>
+    </form>
+</div>
+{% endblock %}

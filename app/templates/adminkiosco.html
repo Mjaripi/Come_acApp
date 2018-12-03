@@ -1,0 +1,157 @@
+{% extends "layout_2.html" %}
+{% block body %}
+
+<br>
+<div class="container">
+
+	<!-- Encabezado -->
+	<blockquote class="blockquote text-center">
+		<p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+		<footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+	<!-- Fin encabezado -->
+
+	<br>
+
+	<blockquote class="blockquote text-center">
+		<h3>
+			<small class="text-muted">jueves 7 de diciembre</small>
+		</h3>
+	</blockquote>
+	
+	<!-- Fin encabezado -->
+	<br>
+	<br>
+
+	<h5>Gestione un nuevo almuerzo</h5>
+
+	<br>
+
+	<hr>
+	<br>
+
+	<form>
+		<!-- Datos Kiosco -->
+		<fieldset disabled>
+			<div class="col-md-6 mb-3">
+				<label for="disabledTextInput">Kiosco</label>
+				<input type="text" id="disabledTextInput" class="form-control" placeholder="Kiosco Redy">
+			</div>
+		</fieldset>
+
+		<fieldset disabled>
+			<div class="col-md-6 mb-3">
+				<label for="disabledTextInput">Ubicación</label>
+				<input type="text" id="disabledTextInput" class="form-control" placeholder="Avenida Alameda 3363. Estación Central">
+			</div>
+		</fieldset>
+		<fieldset disabled>
+			<div class="col-md-6 mb-3">
+				<label for="disabledTextInput">Carrera</label>
+				<input type="text" id="disabledTextInput" class="form-control" placeholder="Ingeniería Química">
+			</div>
+		</fieldset>
+
+		<div class="col-md-6 mb-3">
+			<label for="disabledTextInput">Medios de Pago</label>
+			s
+			<br>
+			<span class="input-group-addon" id="basic-addon3">Junaeb</span>
+			<br>
+			<span class="input-group-addon" id="basic-addon3">Ticket endered</span>
+		</div>
+
+		<!-- Fin datos kiosco -->
+
+		<!-- Selección de Almuerzo -->
+		<div class="col-md-6 mb-3">
+			<label for="disabledSelect">Almuerzo</label>
+			<select id="disabledSelect" class="form-control">
+				<option>Seleccionar Almuerzo</option>
+				<option>Arroz</option>
+				<option>Tallarines</option>
+				<option>Lentejas</option>
+			</select>
+		</div>
+		<!-- Fin selección de almuerzo -->
+
+		<!-- Selección de categoría -->
+		<div class="col-md-6 mb-3">
+			<label for="disabledSelect">Categoría</label>
+			<!--selectpicker form-control-->
+			<select id="disabledSelect" class="form-control">
+				<option>Seleccionar Categoría</option>
+				<option>Pastas</option>
+				<option>Ensaladas</option>
+				<option>Sopas</option>
+			</select>
+		</div>
+		<!-- fin selección de categoría -->
+		
+		<!-- selección de agregado -->
+		<div class="col-md-6 mb-3">
+			<label for="exampleFormControlSelect2">Agregados</label>
+			<div multiple class="form-control" id="exampleFormControlSelect2">	
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 
+						Pan
+					</label>
+				</div>
+				<br>
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						Jugo
+					</label>
+				</div>
+				<br>
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 
+						Ensalada
+					</label>
+				</div>
+				<br>
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 
+						Postre
+					</label>
+				</div>
+			</div>
+		</div>
+		<!-- fin selección de agregado -->
+
+		<!-- Descripción del almuerzo -->
+		<div class="col-md-6 mb-3">
+			<label for="exampleFormControlTextarea1">Example textarea</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+		</div>
+		<!-- fin descripción del almuerzo -->
+		
+		<!-- precio del almuerzo -->
+		<div class="col-md-6 mb-3">
+			<label for="disabledTextInput">Precio</label>
+			<div class="input-group">
+				<span class="input-group-addon">$</span>
+				<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+			</div>
+		</div>
+		<!-- fin precio del almuerzo -->
+		
+		<br>
+
+		<!-- botón de publicación del almuerzo -->
+		<div class="col-md-6 mb-3">
+			<button type="submit" class="btn btn-primary">Publicar</button>
+		</div>
+		<!-- fin botón publicación de almuerzo -->
+
+
+	</form>
+
+
+
+</div>
+{% endblock %}

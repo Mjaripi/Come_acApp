@@ -1,0 +1,157 @@
+{% extends "layout_3.html" %}
+{% block body %}
+<br>
+<div class="container">
+
+  <!-- Encabezado -->
+	<blockquote class="blockquote text-center">
+		<p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+		<footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+  <!-- Fin encabezado -->
+
+ 	<br>
+
+ 	<blockquote class="blockquote text-center">
+		<h3>
+	  		<small class="text-muted">jueves 7 de diciembre</small>
+		</h3>
+ 	</blockquote>
+
+	<br>
+	<br>
+	<h5>Kioscos Registrados</h5>
+
+    <br>
+	<!-- Inicio listado de Kioscos -->
+	<table class="table">
+	 	<thead>
+			<tr>
+		 		<th scope="col">Nombre</th>
+		 		<th scope="col">Carrera</th>
+		 		<th scope="col">Universidad</th>
+		 		<th scope="col">Ubicacion</th>
+		 		<th scope="col"></th>
+		 		<th scope="col"></th>
+			</tr>
+		</thead>
+
+	  	<tbody>
+		{% for david in KIOSCO %}
+		  	<tr>
+				<td>{{ david.KIO_NOMBRE }}</td>
+				<td>{{ david.CAR_NOMBRE}}</td>
+				<td>{{ david.UNI_NOMBRE }}</td>
+				<td>{{ david.KIO_UBICACION}}</td>
+				<td>
+                	<a href="/ADM_kioscos/{{david.KIO_ID}}/UPD" class="btn btn-sm btn-warning">Editar</a>
+				</td>
+				<td>
+					<a href="/ADM_kioscos/{{david.KIO_ID}}/DEL" class="btn btn-sm btn-danger">Eliminar</a>
+				</td>
+		  	</tr>
+		{% endfor %}
+	  	</tbody>
+	</table>
+	<!-- Fin Listado de kioscos -->
+
+
+	<!-- Boton que redirige a la ventana emergente de Registro -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrodavid" data-whatever="@mdo">Añadir Nuevo</button>
+
+
+	<br>
+	<br>
+	<!-- Ventana emergente de Registro de datos del Kiosco -->
+	<div class="modal fade bd-example-modal-lg" id="registrodavid" tabindex="-1" role="dialog" aria-labelledby="registrodavid" aria-hidden="true">
+
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<!-- Inicio Titulo Ventana -->
+				<div class="modal-header">
+	              <h5 class="modal-title" id="registrodavid">Registro de kiosco</h5>
+	              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                <span aria-hidden="true">&times;</span>
+	              </button>
+	            </div>
+				<!-- Fin Titulo Ventana -->
+				<div class="modal-body">
+					<form action="/ADM_kioscos" method="post">
+						<!-- Cuadro de ingreso de nombre kiosco -->
+						<div class="form-group">
+					    	<label for="exampleFormControlInput1">Nombre</label>
+					    	<input type="text" name = "KIO_NOMBRE" class="form-control" id="exampleFormControlInput1" placeholder="Nombre Kiosco">
+					    </div>
+						<!-- Cuadro ingreso de direccion kiosco -->
+						<div class="form-group">
+					      <label for="exampleFormControlInput1">Direccion</label>
+					      <input type="text" name = "KIO_DIRECCION" class="form-control" id="exampleFormControlInput1" placeholder="Ej: Calle Falsa 123">
+					    </div>
+
+						<br>
+						<!-- Inicio estilo en la misma fila -->
+						<div class="row">
+							<!-- Inicio cuadro de seleccion de universidad -->
+							<div class="col-lg-6">
+					        	<div class="form-group">
+					            	<label for="exampleFormControlSelect1">Universidad</label>
+					            	<select class="form-control" name = "KIO_UNIV" id="exampleFormControlSelect1">
+					              		<option selected disabled>Seleccione Universidad</option>
+					              		{% for c in UNIVERSIDAD %}
+					                  		<option value="{{ c.UNI_ID }}" name = "KIO_UNI_NAME">{{ c.UNI_NOMBRE }}</option>
+					              		{% endfor %}
+					            	</select>
+					          	</div>
+					        </div>
+							<!-- Fin cuadro de seleccion de universidad -->
+							<!-- Inicio cuadro de seleccion de carrera -->
+							<div class="col-lg-6">
+					        	<div class="form-group">
+					          		<label for="exampleFormControlSelect1">Carrera</label>
+					            	<select class="form-control" name = "KIO_CARR" id="exampleFormControlSelect1">
+					              		<option selected disabled>Seleccione Carrera</option>
+					              		{% for c in CARRERA %}
+					                  		<option value="{{ c.CAR_ID }}" name = "KIO_CAR_NAME">{{ c.CAR_NOMBRE }}</option>
+					              		{% endfor %}
+					            	</select>
+					          	</div>
+					        </div>
+							<!-- Fin cuadro de seleccion de carrera -->
+						</div>
+						<!-- Fin estilo en la misma fila -->
+
+						<!-- Boton de ingreso de envio de datos para registro -->
+						<div class="modal-footer">
+					    	<input type="submit" class="btn btn-success" value="Registrar"></input>
+					    </div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Ventana emergente de Advertencia de borrado de datos
+	<div class="modal fade bd-example-modal-lg" id="deleteWARNING" tabindex="-1" role="dialog" aria-labelledby="deleteWARNING" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+	            	<h5 class="modal-title" id="registrodavid">¡ADVERTENCIA!</h5>
+	            	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	              		<span aria-hidden="true">&times;</span>
+	              	</button>
+				</div>
+				<div class="modal-body">
+        			<p>ESTA A PUNTO DE BORRAR UN DATO DEL REGISTRO.</p>
+					<p>¿Desea Continuar?</p>
+      			</div>
+      			<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal"> No (Regresar) </button>
+						<button type="button" class="btn btn-danger"  Si (Eliminar) </button>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+</div>
+{% endblock %}

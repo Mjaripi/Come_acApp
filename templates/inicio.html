@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<br>
+
+
+<div class="container">
+	<blockquote class="blockquote text-center">
+		<p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+		<footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+
+	<br>
+	<br>
+	<br>
+
+	<form action="/inicio" method="post" class="container">
+		<div class="form-group">
+			<div class="col-md-6 mb-3">
+				<label for="exampleInputEmail1">Correo</label>
+				<input type="email" name = "USU_CORREO" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar correo">
+				<small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu correo con alguien mas.</small>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-6 mb-3">
+				<label for="exampleInputPassword1">Contraseña</label>
+				<input type="password" name = "USU_CONTRASENA" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+			</div>
+		</div>
+		<div class="col-md-6 mb-3">
+				<input type="submit" class="btn btn-success" value="Ingresar"></input>
+
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+  Ayuda
+</button>
+</div><!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ayuda</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Ingrese su correo y su constraseña
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	</form>
+
+
+
+
+
+
+
+</div>
+
+
+{% endblock %}

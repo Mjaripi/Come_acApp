@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+<br>
+<div class="container">
+
+	<!-- Encabezado -->
+	<blockquote class="blockquote text-center">
+	   <p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+	   <footer class="blockquote-footer">Come acApp</footer>
+	</blockquote>
+
+
+	<br>
+
+	<blockquote class="blockquote text-center">
+	   <h3>
+		     <small class="text-muted">jueves 7 de diciembre</small>
+	   </h3>
+	</blockquote>
+
+
+<br>
+
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a> Todo </a></li>
+    <li class="breadcrumb-item"><a href="/precio"> Precio </a></li>
+    <li class="breadcrumb-item"><a href="#categoria" data-toggle="modal" data-target="#categoria" data-whatever="@mdo"> Categoria </a></li>
+    <li class="breadcrumb-item"><a href="#mediopago" data-toggle="modal" data-target="#mediopago" data-whatever="@mdo"> Medio de Pago </a></li>
+  </ol>
+</nav>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Kiosco</th>
+      <th scope="col">Almuerzo</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Horario</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody id ="todoAlmuerzo">
+    {% for c in ALMUERZO %}
+    <tr>
+              <td>{{ c.KIO_NOMBRE }}</td>
+              <th scope="row">{{ c.ALM_NOMBRE}}</th>
+              <td>${{ c.PRECIO }}</td>
+              <td>{{ c.HORA }}</td>
+              <td>
+                <a href="/mas_info/{{ c.KIO_ALM_ID }}" class="btn btn-sm btn-warning">Ver más</a>
+              </td>
+
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+<div class="modal fade bd-example-modal-lg" id="categoria" tabindex="-1" role="dialog" aria-labelledby="categoria" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+						<div class="modal-header">
+									<h5 class="modal-title" id="test1">Seleccione un Filtro</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+						</div>
+						<div class="modal-body">
+								<form action="/categoria" method="post">
+
+									<div class="form-group">
+										<select class="form-control" name = "CAT_TYP" id="exampleFormControlSelect1">
+												<option selected disabled>Seleccione una Categoria</option>
+												{% for c in CATEGORIA %}
+														<option value="{{ c.CAT_ID }}" name = "KIO_CAR_NAME">{{ c.CAT_NOMBRE }}</option>
+												{% endfor %}
+										</select>
+									</div>
+
+								<input type="submit" class="btn btn-success" value="Filtrar"></input>
+								<br>
+								</form>
+						</div>
+				</div>
+		</div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="mediopago" tabindex="-1" role="dialog" aria-labelledby="mediopago" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+						<div class="modal-header">
+									<h5 class="modal-title" id="test2">Seleccione un Filtro</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+						</div>
+						<div class="modal-body">
+								<form action="/medio_pago" method="post">
+
+									<div class="form-group">
+										<select class="form-control" name = "MT_TYP" id="exampleFormControlSelect1">
+												<option selected disabled>Seleccione un Metodo de Pago</option>
+												{% for c in MEDIO_PAGO %}
+														<option value="{{ c.MED_PAG_ID }}" name = "MED_PAG_NAME">{{ c.MED_PAG_NOMBRE }}</option>
+												{% endfor %}
+										</select>
+									</div>
+
+								<input type="submit" class="btn btn-success" value="Filtrar"></input>
+								<br>
+								</form>
+						</div>
+				</div>
+		</div>
+</div>
+
+</div>
+{% endblock %}

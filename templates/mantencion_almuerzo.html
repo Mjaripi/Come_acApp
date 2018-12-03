@@ -1,0 +1,117 @@
+{% extends "layout_3.html" %}
+{% block body %}
+  <br>
+  <div class="container">
+
+    <!-- Encabezado -->
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+      <footer class="blockquote-footer">Come acApp</footer>
+    </blockquote>
+    <!-- Fin encabezado -->
+
+    <br>
+
+    <blockquote class="blockquote text-center">
+      <h3>
+        <small class="text-muted">jueves 7 de diciembre</small>
+      </h3>
+    </blockquote>
+  <!--
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+      </ol>
+    </nav>
+
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="url_for('mantencion')">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Library</li>
+      </ol>
+    </nav>
+-->
+<!--
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Método Pago</li>
+        <li class="breadcrumb-item"><a href="mantencion_carrera">Carrera</a></li>
+        <li class="breadcrumb-item"><a href="#">Universidad</a></li>
+      </ol>
+    </nav>
+  -->
+    <!-- Fin encabezado -->
+    <br>
+    <br>
+    <h5>Mantención de Almuerzo</h5>
+
+    <br>
+
+
+    <!-- Tabla que muestra los medios de pago -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Almuerzo</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for david in ALMUERZO %}
+            <tr>
+              	<td>{{ david.ALM_ID}}</td>
+              	<td>{{ david.ALM_NOMBRE }}</td>
+              	<td>
+                	<a href="/edit_almuerzo/{{ david.ALM_ID }}" class="btn btn-sm btn-warning">Editar</a>
+              	</td>
+            	<td>
+                	<a href="/mantencion_almuerzo/{{ david.ALM_ID }}/delete" class="btn btn-sm btn-danger">Eliminar</a>
+            	</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrodavid" data-whatever="@mdo">Añadir Nuevo</button>
+
+
+      <br>
+      <br>
+
+      <div class="modal fade" id="registrodavid" tabindex="-1" role="dialog" aria-labelledby="registrodavid" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registrodavid">Registro</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/mantencion_almuerzo" method="post">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Almuerzo:</label>
+                <input type="text" name = "ALM_NOMBRE" class="form-control" id="recipient-name" placeholder="Almuerzo">
+              </div>
+              <div class="modal-footer">
+                <input type="submit" class="btn btn-success" value="Registrar"></input>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+  </div>
+{% endblock %}

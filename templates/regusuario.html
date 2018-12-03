@@ -1,0 +1,198 @@
+{% extends "layout_3.html" %}
+{% block body %}
+  <br>
+  <div class="container">
+
+    <!-- Encabezado -->
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+      <footer class="blockquote-footer">Come acApp</footer>
+    </blockquote>
+    <!-- Fin encabezado -->
+
+    <br>
+
+    <blockquote class="blockquote text-center">
+      <h3>
+        <small class="text-muted">jueves 7 de diciembre</small>
+      </h3>
+    </blockquote>
+  <!--
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+      </ol>
+    </nav>
+
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="url_for('mantencion')">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Library</li>
+      </ol>
+    </nav>
+-->
+<!--
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Método Pago</li>
+        <li class="breadcrumb-item"><a href="mantencion_carrera">Carrera</a></li>
+        <li class="breadcrumb-item"><a href="#">Universidad</a></li>
+      </ol>
+    </nav>
+  -->
+    <!-- Fin encabezado -->
+    <br>
+    <br>
+    <h5>Usuarios Registrados</h5>
+
+    <br>
+
+
+    <!-- Tabla que muestra los medios de pago -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Tipo de Usuario</th>
+            <th scope="col">Baneado</th>
+            <th scope="col">Permiso</th>
+            <th scope="col">Fecha Inicio</th>
+            <th scope="col">Fecha Término</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for david in USUARIO %}
+            <tr>
+              <td>{{ david.USU_ID}}</td>
+              <td>{{ david.USU_NOMBRE }}</td>
+              <td>{{ david.USU_CORREO}}</td>
+              <td>{{ david.TIP_USU_NOMBRE }}</td>
+              <td>{{ david.USU_BANEADO}}</td>
+              <td>{{ david.PER_NOMBRE }}</td>
+              <td>{{ david.PER_USU_F_I }}</td>
+              <td>{{ david.PER_USU_F_T }}</td>
+              <!--
+              <td>
+                <a href="/edit_mediopago/{{ david.MED_PAG_ID }}" class="btn btn-sm btn-warning">Editar</a>
+              </td>
+              <td>
+                <a href="/mantencion_mediopago/{{ david.MED_PAG_ID }}/delete" class="btn btn-sm btn-danger">Eliminar</a>
+              </td>
+            -->
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrodavid" data-whatever="@mdo">Añadir Nuevo</button>
+
+
+      <br>
+      <br>
+
+
+      <div class="modal fade bd-example-modal-lg" id="registrodavid" tabindex="-1" role="dialog" aria-labelledby="registrodavid" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registrodavid">Registro</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+             <form action="/regusuario" method="post">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Nombre</label>
+      <input type="text" name = "USU_NOMBRE" class="form-control" id="exampleFormControlInput1" placeholder="Nombre Usuario">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Correo</label>
+      <input type="email" name = "USU_CORREO" class="form-control" id="exampleFormControlInput1" placeholder="nombre@correo.com">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Contraseña</label>
+      <input type="password" name = "USU_CONTRASENA" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+    </div>
+
+    <br>
+    <!-- Selección tipo de usuario -->
+    <div class="row">
+
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Selección de Tipo de Usuario</label>
+          <select class="form-control" name = "test1" id="exampleFormControlSelect1">
+            <option>Seleccione un Tipo de Usuario</option>
+            {% for c in TIPO_USUARIO %}
+                <option value="{{ c.TIP_USU_ID }}" name = "USU_TIP_USU"SELECTED>{{ c.TIP_USU_NOMBRE }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+    <!-- Fin selección tipo usuario -->
+
+
+    <!-- Seleccción de permiso-->
+
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Selección de Permiso</label>
+          <select class="form-control" name = "test2" id="exampleFormControlSelect1">
+            <option>Seleccionar Permiso</option>
+            {% for c in PERMISO %}
+                <option value="{{ c.PER_ID }}" name = "PER_USU_PER" SELECTED>{{ c.PER_NOMBRE }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- fin selección de permiso -->
+
+    <br>
+
+    <!-- selección de agregado -->
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Usuario Baneado</label>
+      <div multiple class="form-control" id="exampleFormControlSelect2">
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="bancheck" id="inlineCheckbox1" value="">
+            Baneado
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+                <input type="submit" class="btn btn-success" value="Registrar"></input>
+              </div>
+
+    <!-- fin selección de agregado -->
+
+</form>
+
+
+
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+{% endblock %}

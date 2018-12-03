@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <h2>Posts</h2>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>MED_PAG_ID</th>
+              <th>MED_PAG_NOMBRE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in posts %}
+              <tr>
+                <td>{{ post.MED_PAG_ID}}</td>
+                <td>{{ post.MED_PAG_NOMBRE }}</td>
+                <td>
+                  <a href="/posts/{{ post.MED_PAG_ID }}/edit" class="btn btn-sm btn-warning">Edit</a>
+                  <a href="/posts/{{ post.MED_PAG_ID}}/delete" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <h2>New Post</h2>
+
+        <form action="/posts" method="post">
+          <div class="form-group">
+            <label>Medio de Pago:</label>
+            <input type="text" name="title" class="form-control">
+          </div>
+
+          <input type="submit" value="Create" class="btn btn-success">
+        </form>        
+      </div>
+    </div>
+  </div>    
+{% endblock %}

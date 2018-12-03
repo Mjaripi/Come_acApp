@@ -1,0 +1,51 @@
+{% extends "layout_3.html" %}
+{% block body %}
+  <br>
+  <div class="container">
+
+    <!-- Encabezado -->
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">Sistema para la publicación de los almuerzos de los kioscos de la Usach.</p>
+      <footer class="blockquote-footer">Come acApp</footer>
+    </blockquote>
+    <!-- Fin encabezado -->
+
+    <br>
+
+    <blockquote class="blockquote text-center">
+      <h3>
+        <small class="text-muted">jueves 7 de diciembre</small>
+      </h3>
+    </blockquote>
+  <!--
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+      </ol>
+    </nav>
+
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="url_for('mantencion')">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Library</li>
+      </ol>
+    </nav>
+-->
+    <!-- Fin encabezado -->
+    <br>
+    <br>
+    <h5>Mantención Permiso</h5>
+
+    <br>
+
+	<form action="/edit_permiso/{{ editar.PER_ID }}" method="post">
+      <div class="form-group">
+        <label for="recipient-name" class="col-form-label">Permiso:</label>
+        <input type="text" name = "PER_NOMBRE" class="form-control" id="recipient-name" placeholder="Permiso" value="{{ editar.PER_NOMBRE }}">
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn btn-success" value="Editar"></input>
+      </div>
+    </form>
+  </div>
+  {% endblock %}
